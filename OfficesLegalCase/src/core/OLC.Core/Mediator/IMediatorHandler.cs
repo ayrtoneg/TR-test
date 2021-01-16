@@ -6,6 +6,6 @@ namespace OLC.Core.Mediator
 {
     public interface IMediatorHandler
     {
-        Task<ValidationResult> EnviarComando<T>(T comando) where T : Command;
+        Task<ValidationResult> SendCommand<T>(T comando) where T : Command;
     }
 }

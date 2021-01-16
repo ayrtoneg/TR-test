@@ -1,6 +1,5 @@
 ﻿using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,24 +14,13 @@ namespace OLC.Core.Controllers
         {
             if (ValidOperation())
             {
-                return Ok(result);
+                return Ok(result ?? true);
             }
 
             return BadRequest(new ValidationProblemDetails(new Dictionary<string, string[]>
             {
                 { "Mensagens", Errors.ToArray() }
             }));
-        }
-
-        protected ActionResult CustomResponse(ModelStateDictionary modelState)
-        {
-            var erros = modelState.Values.SelectMany(e => e.Errors);
-            foreach (var erro in erros)
-            {
-                AddError(erro.ErrorMessage);
-            }
-
-            return CustomResponse();
         }
 
         protected ActionResult CustomResponse(ValidationResult validationResult)

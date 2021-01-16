@@ -14,7 +14,7 @@ namespace OLC.Core.Mediator
             _mediator = mediator;
         }
 
-        public async Task<ValidationResult> EnviarComando<T>(T comando) where T : Command
+        public async Task<ValidationResult> SendCommand<T>(T comando) where T : Command
         {
             return await _mediator.Send(comando);
         }
