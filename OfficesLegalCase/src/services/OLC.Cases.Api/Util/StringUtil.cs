@@ -10,10 +10,13 @@ namespace OLC.Cases.Api.Util
     {
         public static bool IsValidCaseNumber(this string caseNumber)
         {
-            var rx = new Regex(@"([1-9]{9}).([1-9]{4}).([1-9]{1}).([1-9]{2}).([1-9]{4})", RegexOptions.Compiled);
+            if (caseNumber != null)
+            {
+                var rx = new Regex(@"([1-9]{9}).([1-9]{4}).([1-9]{1}).([1-9]{2}).([1-9]{4})", RegexOptions.Compiled);
 
-            if (rx.IsMatch(caseNumber))
-                return true;
+                if (rx.IsMatch(caseNumber))
+                    return true;
+            }
 
             return false;
         }
