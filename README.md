@@ -8,6 +8,7 @@
 - FluentValidator
 - MediatR
 - Swagger UI
+- NUnit
 
 ## Architecture:
 
