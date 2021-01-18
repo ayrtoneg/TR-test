@@ -29,7 +29,7 @@
 - Run project
 
 **Docker**
-- Open Command Line Interface and go to the project's "src" path
+- Open Command Line Interface and go to the "docker" path in the project
 - Type "docker-compose -f officeslegalcase.yml up --build"
 
 ## How to test:
