@@ -22,7 +22,7 @@
 
 **Manually**
 - You will need the latest Visual Studio 2019, the latest .NET Core SDK and Sql Server 2018 or latest.
-- Create a new database called LegalCase or adjust the database in the connection string.
+- Create a new "LegalCase" database or adjust the database in the connection string.
 - Open Package Manager Console
 - Type "Add-Migration Initial"
 - Type "Update-Database"
