@@ -31,7 +31,7 @@
 **Docker**
 - Open Command Line Interface and go to the "docker" path in the project
 - Type "docker-compose -f officeslegalcase.yml up --build"
-- Check if its running in [http://localhost:59212](http://localhost:59212/)
+- Check if its running at [http://localhost:59212](http://localhost:59212/)
 
 ## How to test:
 - Open Package Manager Console
