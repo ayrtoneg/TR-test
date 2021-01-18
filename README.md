@@ -19,4 +19,20 @@
 - Repository
 
 ## How to use:
-- You will need the latest Visual Studio 2019 and the latest .NET Core SDK.
+
+**Manually**
+- You will need the latest Visual Studio 2019, the latest .NET Core SDK and Sql Server 2018 or latest.
+- Create a new database called LegalCase or adjust the database in the connection string.
+- Open Package Manager Console
+- Type "Add-Migration Initial"
+- Type "Update-Database"
+- Run project
+
+**Docker**
+- Open Command Line Interface and go to the project's "src" path
+- Type "docker-compose -f officeslegalcase.yml up --build"
+
+## How to test:
+- Open Package Manager Console
+- Select "OLC.Test" project 
+- Type "dotnet test"
