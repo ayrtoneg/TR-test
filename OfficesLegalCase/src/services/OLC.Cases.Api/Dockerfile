@@ -7,10 +7,12 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["src/services/OLC.Cases.Api/OLC.Cases.Api.csproj", "src/services/OLC.Cases.Api/"]
-RUN dotnet restore "src/services/OLC.Cases.Api/OLC.Cases.Api.csproj"
+COPY ["./services/OLC.Cases.Api/OLC.Cases.Api.csproj", "services/OLC.Cases.Api/"]
+COPY ["./core/OLC.Core/OLC.Core.csproj", "core/OLC.Core/"]
+
+RUN dotnet restore "services/OLC.Cases.Api/OLC.Cases.Api.csproj"
 COPY . .
-WORKDIR "/src/src/services/OLC.Cases.Api"
+WORKDIR "services/OLC.Cases.Api"
 RUN dotnet build "OLC.Cases.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish

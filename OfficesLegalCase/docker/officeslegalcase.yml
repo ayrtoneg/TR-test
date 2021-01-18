@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+
+    sql-server:
+        image: olc-sql-server:latest
+        container_name: olc-sql-server
+        build: 
+            context: ../sql
+            dockerfile: ./Dockerfile
+        ports: 
+            - "1433:1433" 
+        environment:
+            SA_PASSWORD: "MeuDB@123"
+            ACCEPT_EULA: "Y" 
+            
+    olc-api:
+        image: olc-api-case:latest
+        container_name: olc-case-api
+        build: 
+            context: ../src
+            dockerfile: ./services/OLC.Cases.Api/Dockerfile
+        ports: 
+            - "59212:59212" 
+        environment: 
+            - ASPNETCORE_ENVIRONMENT=Production
+            - ASPNETCORE_URLS=http://*:59212
+        depends_on:
+            - sql-server
+
+     
